@@ -1,4 +1,4 @@
-<style>
+
   body { font-family: sans-serif; background: #f4f7f6; display: flex; flex-direction: column; align-items: center; padding: 20px; }
   .container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
   input, textarea { width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
@@ -14,5 +14,5 @@
   .ktp-data { flex: 1; padding-left: 15px; font-size: 10px; }
   .nik-label { font-size: 14px; font-weight: bold; color: #ffeb3b; margin-bottom: 8px; display: block; }
   #download-btn { display: none; margin-top: 15px; background: #28a745; width: 350px; }
-</style>
+
               
