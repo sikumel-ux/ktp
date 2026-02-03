@@ -1,46 +1,48 @@
-const form = document.getElementById('wargaForm');
-const fileInput = document.getElementById('fotoKtp');
-const preview = document.getElementById('preview');
+<script>
+  const form = document.getElementById('wargaForm');
+  const fileInput = document.getElementById('fileInput');
+  const preview = document.getElementById('preview');
 
-fileInput.onchange = () => {
+  fileInput.onchange = () => {
     const [file] = fileInput.files;
     if (file) {
-        preview.src = URL.createObjectURL(file);
-        preview.style.display = 'block';
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = 'block';
     }
-};
+  };
 
-form.onsubmit = (e) => {
+  form.onsubmit = function(e) {
     e.preventDefault();
-    const nik = document.getElementById('nik').value;
-    if(nik.length !== 16) return alert("NIK harus 16 digit!");
+    if(document.getElementById('nikInput').value.length !== 16) return alert("NIK harus 16 digit!");
 
-    const btn = document.getElementById('btn-kirim');
-    btn.disabled = true;
-    btn.innerText = "Processing...";
+    document.getElementById('btn-kirim').disabled = true;
+    document.getElementById('btn-kirim').innerText = "Sedang Mengirim...";
 
-    // Jika di Google Apps Script, gunakan google.script.run
-    // Di sini kita asumsikan integrasi via FormObject
     google.script.run
-        .withSuccessHandler(() => {
-            document.getElementById('res-nama').innerText = document.getElementById('nama').value;
-            document.getElementById('res-nik').innerText = "NIK " + nik;
-            document.getElementById('res-alamat').innerText = document.getElementById('alamat').value;
-            document.getElementById('ktp-foto-render').src = preview.src;
+      .withSuccessHandler(res => {
+        if(res === "Sukses") {
+          document.getElementById('res-nama').innerText = form.nama.value;
+          document.getElementById('res-nik').innerText = "NIK " + form.nik.value;
+          document.getElementById('res-alamat').innerText = form.alamat.value;
+          document.getElementById('ktp-foto-render').src = preview.src;
 
-            document.getElementById('form-container').style.display = 'none';
-            document.getElementById('ktp-card').style.display = 'block';
-            document.getElementById('download-btn').style.display = 'block';
-        })
-        .processForm(form);
-};
+          document.getElementById('form-container').style.display = 'none';
+          document.getElementById('ktp-card').style.display = 'block';
+          document.getElementById('download-btn').style.display = 'block';
+        } else {
+          alert(res);
+          document.getElementById('btn-kirim').disabled = false;
+        }
+      })
+      .processForm(this);
+  };
 
-document.getElementById('download-btn').onclick = () => {
+  function downloadCard() {
     html2canvas(document.getElementById('ktp-card')).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'Kartu_Warga.png';
-        link.href = canvas.toDataURL();
-        link.click();
+      const link = document.createElement('a');
+      link.download = 'KTP_Digital.png';
+      link.href = canvas.toDataURL();
+      link.click();
     });
-};
-      
+  }
+</script>
