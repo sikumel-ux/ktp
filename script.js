@@ -1,4 +1,4 @@
-<script>
+
   const form = document.getElementById('wargaForm');
   const fileInput = document.getElementById('fileInput');
   const preview = document.getElementById('preview');
@@ -45,4 +45,4 @@
       link.click();
     });
   }
-</script>
+
