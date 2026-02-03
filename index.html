@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrasi Warga Digital</title>
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  
-  <?!= include('style'); ?>
 </head>
 <body>
 
@@ -12,30 +13,33 @@
     <h2>Registrasi Warga</h2>
     <form id="wargaForm">
       <label>Nama Lengkap</label>
-      <input type="text" name="nama" required placeholder="Sesuai KTP">
+      <input type="text" name="nama" id="nama" required>
       
       <label>NIK (16 Digit)</label>
-      <input type="number" name="nik" id="nikInput" required placeholder="3201...">
+      <input type="number" name="nik" id="nik" required>
       
       <label>Alamat</label>
-      <textarea name="alamat" rows="3" required></textarea>
+      <textarea name="alamat" id="alamat" rows="2" required></textarea>
       
-      <label>Foto KTP</label>
-      <input type="file" name="fotoKtp" id="fileInput" accept="image/*" required>
-      <img id="preview" style="display:none; width:100%; margin:10px 0; border-radius:5px;">
+      <label>Upload Foto Diri (Untuk di Kartu)</label>
+      <input type="file" name="fotoDiri" id="fileDiri" accept="image/*" required>
+      <img id="previewDiri" class="img-preview">
+
+      <label>Upload Foto KTP (Untuk Arsip Admin)</label>
+      <input type="file" name="fotoKtp" id="fileKtp" accept="image/*" required>
       
-      <button type="submit" id="btn-kirim">Simpan & Buat Kartu</button>
+      <button type="submit" id="btn-kirim">Simpan & Cetak</button>
     </form>
   </div>
 
   <div id="ktp-card">
-    <div class="ktp-header">REPUBLIK DIGITAL - KARTU WARGA</div>
+    <div class="ktp-header">KARTU WARGA DIGITAL</div>
     <div class="ktp-body">
       <img id="ktp-foto-render" class="ktp-foto">
       <div class="ktp-data">
         <span class="nik-label" id="res-nik"></span>
-        <div>NAMA: <b id="res-nama"></b></div>
-        <div style="margin-top:5px;">ALAMAT:</div>
+        <div style="margin-bottom:5px;">NAMA: <br><b id="res-nama"></b></div>
+        <div>ALAMAT:</div>
         <div id="res-alamat" style="line-height:1.2;"></div>
       </div>
     </div>
@@ -43,6 +47,6 @@
 
   <button id="download-btn" onclick="downloadCard()">Download Kartu (PNG)</button>
 
-  <?!= include('script'); ?>
+  <script src="script.js"></script>
 </body>
 </html>
