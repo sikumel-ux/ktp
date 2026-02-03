@@ -1,85 +1,18 @@
-body { 
-    font-family: 'Segoe UI', sans-serif; 
-    background: #f0f2f5; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    padding: 20px; 
-}
-
-.container { 
-    background: white; 
-    padding: 25px; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    width: 100%; 
-    max-width: 400px; 
-}
-
-input, textarea { 
-    width: 100%; 
-    padding: 10px; 
-    margin: 8px 0 15px 0; 
-    border: 1px solid #ddd; 
-    border-radius: 6px; 
-    box-sizing: border-box; 
-}
-
-button { 
-    background: #2563eb; 
-    color: white; 
-    border: none; 
-    padding: 12px; 
-    width: 100%; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    font-weight: bold; 
-}
-
-.img-preview { 
-    display: none; 
-    width: 100px; 
-    margin-bottom: 10px; 
-    border-radius: 5px; 
-}
-
-.card-hidden { display: none; }
-
-#ktp-card { 
-    width: 350px; 
-    height: 210px; 
-    background: linear-gradient(135deg, #1e293b, #334155);
-    color: white; 
-    border-radius: 15px; 
-    padding: 20px; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
-    margin-top: 20px;
-}
-
-.ktp-header { 
-    text-align: center; 
-    font-size: 12px; 
-    border-bottom: 1px solid rgba(255,255,255,0.2); 
-    padding-bottom: 8px; 
-    margin-bottom: 15px; 
-}
-
-.ktp-body { display: flex; }
-
-.ktp-foto { 
-    width: 85px; 
-    height: 110px; 
-    border: 2px solid #fff; 
-    object-fit: cover; 
-}
-
-.ktp-data { 
-    padding-left: 15px; 
-    font-size: 11px; 
-}
-
-.nik-label { 
-    font-size: 15px; 
-    font-weight: bold; 
-    color: #f1c40f; 
-}
+<style>
+  body { font-family: sans-serif; background: #f4f7f6; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+  .container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+  input, textarea { width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+  button { background: #007bff; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; }
+  
+  #ktp-card { 
+    display: none; width: 350px; height: 210px; background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white; border-radius: 12px; padding: 15px; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.2); margin-top: 20px;
+  }
+  .ktp-header { text-align: center; font-size: 11px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 5px; margin-bottom: 12px; }
+  .ktp-body { display: flex; }
+  .ktp-foto { width: 85px; height: 110px; border: 2px solid white; object-fit: cover; border-radius: 4px; }
+  .ktp-data { flex: 1; padding-left: 15px; font-size: 10px; }
+  .nik-label { font-size: 14px; font-weight: bold; color: #ffeb3b; margin-bottom: 8px; display: block; }
+  #download-btn { display: none; margin-top: 15px; background: #28a745; width: 350px; }
+</style>
+              
